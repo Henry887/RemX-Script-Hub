@@ -1,5 +1,4 @@
--- Credit Goes to the Creators of the Gui's implemented in this hub
--- Design and functions of the gui made by Henry1887#6969 aka me
+-- Made By Henry1887#6969
 
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("ImageLabel")
@@ -29,6 +28,7 @@ local btn9 = Instance.new("TextButton")
 local image_11 = Instance.new("ImageLabel")
 local line2 = Instance.new("TextLabel")
 local exec = Instance.new("TextLabel")
+local Anim = Instance.new("ImageLabel")
 
 ScreenGui.Parent = game.CoreGui
 
@@ -36,8 +36,9 @@ Main.Name = "Main"
 Main.Parent = ScreenGui
 Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Main.BackgroundTransparency = 1.000
-Main.Position = UDim2.new(0.375101089, 0, 0.305489123, 0)
+Main.Position = UDim2.new(0.449000001, 0, 0.305000007, 0)
 Main.Size = UDim2.new(0, 308, 0, 149)
+Main.Visible = false
 Main.Image = "rbxassetid://3570695787"
 Main.ImageColor3 = Color3.fromRGB(45, 45, 45)
 Main.ScaleType = Enum.ScaleType.Slice
@@ -394,7 +395,20 @@ exec.Text = "Executed Succesfully!"
 exec.TextColor3 = Color3.fromRGB(85, 255, 0)
 exec.TextSize = 14.000
 
-local function AUNPYM_fake_script() -- Main.colorHandler 
+Anim.Name = "Anim"
+Anim.Parent = ScreenGui
+Anim.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Anim.BackgroundTransparency = 1.000
+Anim.Position = UDim2.new(0.375101089, 0, 0.378659844, 0)
+Anim.Size = UDim2.new(0, 308, 0, 149)
+Anim.Visible = false
+Anim.Image = "rbxassetid://3570695787"
+Anim.ImageColor3 = Color3.fromRGB(45, 45, 45)
+Anim.ScaleType = Enum.ScaleType.Slice
+Anim.SliceCenter = Rect.new(100, 100, 100, 100)
+Anim.SliceScale = 0.120
+
+local function AHNCK_fake_script() -- Main.colorHandler 
 	local script = Instance.new('LocalScript', Main)
 
 	while true do
@@ -405,8 +419,8 @@ local function AUNPYM_fake_script() -- Main.colorHandler
 		end
 	end
 end
-coroutine.wrap(AUNPYM_fake_script)()
-local function QJST_fake_script() -- Main.dragScript 
+coroutine.wrap(AHNCK_fake_script)()
+local function TWNSOB_fake_script() -- Main.dragScript 
 	local script = Instance.new('LocalScript', Main)
 
 	local Drag = script.Parent
@@ -449,8 +463,8 @@ local function QJST_fake_script() -- Main.dragScript
 		end)
 	
 end
-coroutine.wrap(QJST_fake_script)()
-local function BXBL_fake_script() -- Main.blurScript 
+coroutine.wrap(TWNSOB_fake_script)()
+local function MAQM_fake_script() -- Main.blurScript 
 	local script = Instance.new('LocalScript', Main)
 
 	local on = false
@@ -482,30 +496,26 @@ local function BXBL_fake_script() -- Main.blurScript
 			while gui.ImageTransparency > 0 do
 				if on then
 					gui.ImageTransparency = gui.ImageTransparency - 0.05
-					title.TextTransparency = title.TextTransparency - 0.05
-					line.BackgroundTransparency = line.BackgroundTransparency - 0.05
-					line2.BackgroundTransparency = line2.BackgroundTransparency - 0.05
-					close.ImageTransparency = close.ImageTransparency - 0.05
-					mini.ImageTransparency = mini.ImageTransparency - 0.05
-					btn.image.ImageTransparency = btn.image.ImageTransparency - 0.05
-					btn.TextTransparency = btn.TextTransparency - 0.05
-					btn2.image.ImageTransparency = btn2.image.ImageTransparency - 0.05
-					btn2.TextTransparency = btn2.TextTransparency - 0.05
-					btn3.TextTransparency = btn3.TextTransparency - 0.05
-					btn3.image.ImageTransparency = btn3.image.ImageTransparency - 0.05
-					btn4.image.ImageTransparency = btn4.image.ImageTransparency - 0.05
-					btn4.TextTransparency = btn4.TextTransparency - 0.05
-					btn5.TextTransparency = btn5.TextTransparency - 0.05
-					btn5.image.ImageTransparency = btn5.image.ImageTransparency - 0.05
-					btn6.image.ImageTransparency = btn6.image.ImageTransparency - 0.05
-					btn6.TextTransparency = btn6.TextTransparency - 0.05
-					btn7.TextTransparency = btn7.TextTransparency - 0.05
-					btn7.image.ImageTransparency = btn7.image.ImageTransparency - 0.05
-					btn8.image.ImageTransparency = btn8.image.ImageTransparency - 0.05
-					btn8.TextTransparency = btn8.TextTransparency - 0.05
-					btn9.TextTransparency = btn9.TextTransparency - 0.05
-					btn9.image.ImageTransparency = btn9.image.ImageTransparency - 0.05
-					exec.TextTransparency = exec.TextTransparency - 0.05
+					for i, v in pairs(script.Parent:GetChildren()) do
+						if on then
+						if v.ClassName ~= "LocalScript" then
+							if v.ClassName == "TextButton" then
+								if v.Name ~= "close" and v.Name ~= "minimize" then
+									v.image.ImageTransparency = v.image.ImageTransparency - 0.05
+									v.TextTransparency = v.TextTransparency - 0.05
+								else
+									v.image.ImageTransparency = v.image.ImageTransparency - 0.05
+								end
+							elseif v.ClassName == "TextLabel" then
+								if v.Name ~= "exec" and v.Name ~= "title" then
+									v.BackgroundTransparency = v.BackgroundTransparency - 0.05
+								else
+									v.TextTransparency = v.TextTransparency - 0.05
+								end
+							end
+						end
+						end	
+					end
 					wait(0.01)
 				else
 					break
@@ -527,31 +537,27 @@ local function BXBL_fake_script() -- Main.blurScript
 				while gui.ImageTransparency < 0.5 do
 					if on == false then
 						gui.ImageTransparency = gui.ImageTransparency + 0.05
-						title.TextTransparency = title.TextTransparency + 0.05
-						line.BackgroundTransparency = line.BackgroundTransparency + 0.05
-						line2.BackgroundTransparency = line2.BackgroundTransparency + 0.05
-						close.ImageTransparency = close.ImageTransparency + 0.05
-						mini.ImageTransparency = mini.ImageTransparency + 0.05
-						btn.image.ImageTransparency = btn.image.ImageTransparency + 0.05
-						btn.TextTransparency = btn.TextTransparency + 0.05
-						btn2.image.ImageTransparency = btn2.image.ImageTransparency + 0.05
-						btn2.TextTransparency = btn2.TextTransparency + 0.05
-						btn3.TextTransparency = btn3.TextTransparency + 0.05
-						btn3.image.ImageTransparency = btn3.image.ImageTransparency + 0.05
-						btn4.image.ImageTransparency = btn4.image.ImageTransparency + 0.05
-						btn4.TextTransparency = btn4.TextTransparency + 0.05
-						btn5.TextTransparency = btn5.TextTransparency + 0.05
-						btn5.image.ImageTransparency = btn5.image.ImageTransparency + 0.05
-						btn6.image.ImageTransparency = btn6.image.ImageTransparency + 0.05
-						btn6.TextTransparency = btn6.TextTransparency + 0.05
-						btn7.TextTransparency = btn7.TextTransparency + 0.05
-						btn7.image.ImageTransparency = btn7.image.ImageTransparency + 0.05
-						btn8.image.ImageTransparency = btn8.image.ImageTransparency + 0.05
-						btn8.TextTransparency = btn8.TextTransparency + 0.05
-						btn9.TextTransparency = btn9.TextTransparency + 0.05
-						btn9.image.ImageTransparency = btn9.image.ImageTransparency + 0.05
-						exec.TextTransparency = exec.TextTransparency + 0.05
-						wait(0.01)
+						for i, v in pairs(script.Parent:GetChildren()) do
+							if not on then
+							if v.ClassName ~= "LocalScript" then
+								if v.ClassName == "TextButton" then
+									if v.Name ~= "close" and v.Name ~= "minimize" then
+										v.image.ImageTransparency = v.image.ImageTransparency + 0.05
+										v.TextTransparency = v.TextTransparency + 0.05
+									else
+										v.image.ImageTransparency = v.image.ImageTransparency + 0.05
+									end
+								elseif v.ClassName == "TextLabel" then
+									if v.Name ~= "exec" and v.Name ~= "title" then
+										v.BackgroundTransparency = v.BackgroundTransparency + 0.05
+									else
+										v.TextTransparency = v.TextTransparency + 0.05
+									end
+								end
+							end
+							end	
+						end
+						wait(0.03)
 					else
 						break
 					end
@@ -560,16 +566,16 @@ local function BXBL_fake_script() -- Main.blurScript
 		end
 	end)
 end
-coroutine.wrap(BXBL_fake_script)()
-local function LUPDAJQ_fake_script() -- Main.cmScript 
+coroutine.wrap(MAQM_fake_script)()
+local function XLJBJDN_fake_script() -- Main.cmScript 
 	local script = Instance.new('LocalScript', Main)
 
 	local close = script.Parent.close
 	local screen = script.Parent.Parent
 	local main = script.Parent
 	local minimize = script.Parent.minimize
-	local uis = game:GetService("UserInputService")
 	local notified = false
+	local uis = game:GetService("UserInputService")
 	
 	close.MouseEnter:Connect(function()
 		close.image.ImageColor3 = Color3.fromRGB(215, 0, 0)
@@ -594,6 +600,30 @@ local function LUPDAJQ_fake_script() -- Main.cmScript
 	end)
 	
 	close.MouseButton1Down:Connect(function()
+		print("Closing!")
+		while main.ImageTransparency < 1 do
+			main.ImageTransparency = main.ImageTransparency + 0.1
+			for i, v in pairs(script.Parent:GetChildren()) do
+				if v.ClassName ~= "LocalScript" then
+					if v.ClassName == "TextButton" then
+						if v.Name ~= "close" and v.Name ~= "minimize" then
+							v.image.ImageTransparency = v.image.ImageTransparency + 0.1
+							v.TextTransparency = v.TextTransparency + 0.1
+						else
+							v.image.ImageTransparency = v.image.ImageTransparency + 0.1
+						end
+					elseif v.ClassName == "TextLabel" then
+						if v.Name ~= "exec" and v.Name ~= "title" then
+							v.BackgroundTransparency = v.BackgroundTransparency + 0.1
+						else
+							v.TextTransparency = v.TextTransparency + 0.1
+						end
+					end
+				end
+			end
+			wait(0.01)
+		end
+		print("Done!")
 		screen:Destroy()
 	end)
 	
@@ -609,8 +639,8 @@ local function LUPDAJQ_fake_script() -- Main.cmScript
 		main.Visible = false
 	end)
 end
-coroutine.wrap(LUPDAJQ_fake_script)()
-local function PNAINH_fake_script() -- btn.LocalScript 
+coroutine.wrap(XLJBJDN_fake_script)()
+local function FRULBVO_fake_script() -- btn.LocalScript 
 	local script = Instance.new('LocalScript', btn)
 
 	local btn = script.Parent
@@ -631,8 +661,8 @@ local function PNAINH_fake_script() -- btn.LocalScript
 		loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
 	end)
 end
-coroutine.wrap(PNAINH_fake_script)()
-local function JAXQSJ_fake_script() -- btn2.LocalScript 
+coroutine.wrap(FRULBVO_fake_script)()
+local function PNVN_fake_script() -- btn2.LocalScript 
 	local script = Instance.new('LocalScript', btn2)
 
 	local btn = script.Parent
@@ -653,8 +683,8 @@ local function JAXQSJ_fake_script() -- btn2.LocalScript
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
 	end)
 end
-coroutine.wrap(JAXQSJ_fake_script)()
-local function UZSEXCV_fake_script() -- btn3.LocalScript 
+coroutine.wrap(PNVN_fake_script)()
+local function ENHG_fake_script() -- btn3.LocalScript 
 	local script = Instance.new('LocalScript', btn3)
 
 	local btn = script.Parent
@@ -675,8 +705,8 @@ local function UZSEXCV_fake_script() -- btn3.LocalScript
 		loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
 	end)
 end
-coroutine.wrap(UZSEXCV_fake_script)()
-local function BIEJ_fake_script() -- btn4.LocalScript 
+coroutine.wrap(ENHG_fake_script)()
+local function TPPAK_fake_script() -- btn4.LocalScript 
 	local script = Instance.new('LocalScript', btn4)
 
 	local btn = script.Parent
@@ -697,8 +727,8 @@ local function BIEJ_fake_script() -- btn4.LocalScript
 		loadstring(game:HttpGetAsync("https://pastebin.com/raw/fPP8bZ8Z"))()
 	end)
 end
-coroutine.wrap(BIEJ_fake_script)()
-local function UBGHBU_fake_script() -- btn5.LocalScript 
+coroutine.wrap(TPPAK_fake_script)()
+local function RPNN_fake_script() -- btn5.LocalScript 
 	local script = Instance.new('LocalScript', btn5)
 
 	local btn = script.Parent
@@ -719,8 +749,8 @@ local function UBGHBU_fake_script() -- btn5.LocalScript
 		loadstring(game:HttpGet(('https://pastebin.com/raw/Zz4YDvLb'),true))()
 	end)
 end
-coroutine.wrap(UBGHBU_fake_script)()
-local function IRPRR_fake_script() -- btn6.LocalScript 
+coroutine.wrap(RPNN_fake_script)()
+local function NUCXMQ_fake_script() -- btn6.LocalScript 
 	local script = Instance.new('LocalScript', btn6)
 
 	local btn = script.Parent
@@ -741,8 +771,8 @@ local function IRPRR_fake_script() -- btn6.LocalScript
 		loadstring(game:HttpGet("https://pastebin.com/raw/nwGzXh1V",true))()
 	end)
 end
-coroutine.wrap(IRPRR_fake_script)()
-local function KLAPSV_fake_script() -- btn7.LocalScript 
+coroutine.wrap(NUCXMQ_fake_script)()
+local function SFIBHRB_fake_script() -- btn7.LocalScript 
 	local script = Instance.new('LocalScript', btn7)
 
 	local btn = script.Parent
@@ -763,8 +793,8 @@ local function KLAPSV_fake_script() -- btn7.LocalScript
 		loadstring(game:HttpGet("https://pastebin.com/raw/3axt0ia1"))()
 	end)
 end
-coroutine.wrap(KLAPSV_fake_script)()
-local function RZWLC_fake_script() -- Main.init 
+coroutine.wrap(SFIBHRB_fake_script)()
+local function DQJWZNI_fake_script() -- Main.init 
 	local script = Instance.new('LocalScript', Main)
 
 	local name = game:GetService("Players").LocalPlayer.Name
@@ -775,8 +805,8 @@ local function RZWLC_fake_script() -- Main.init
 		Duration = 2;
 	})
 end
-coroutine.wrap(RZWLC_fake_script)()
-local function RGDYJ_fake_script() -- btn8.LocalScript 
+coroutine.wrap(DQJWZNI_fake_script)()
+local function LYOUG_fake_script() -- btn8.LocalScript 
 	local script = Instance.new('LocalScript', btn8)
 
 	local btn = script.Parent
@@ -797,8 +827,8 @@ local function RGDYJ_fake_script() -- btn8.LocalScript
 		game.Players.LocalPlayer.Character.Humanoid.Health = 0
 	end)
 end
-coroutine.wrap(RGDYJ_fake_script)()
-local function WRPOSO_fake_script() -- btn9.LocalScript 
+coroutine.wrap(LYOUG_fake_script)()
+local function BHRAIO_fake_script() -- btn9.LocalScript 
 	local script = Instance.new('LocalScript', btn9)
 
 	local btn = script.Parent
@@ -819,4 +849,41 @@ local function WRPOSO_fake_script() -- btn9.LocalScript
 		loadstring(game:HttpGet("https://pastebin.com/raw/ES6xMCn7",true))()
 	end)
 end
-coroutine.wrap(WRPOSO_fake_script)()
+coroutine.wrap(BHRAIO_fake_script)()
+local function SYPHQKT_fake_script() -- Anim.LocalScript 
+	local script = Instance.new('LocalScript', Anim)
+
+	local START_POSITION = UDim2.new(0.905, 0, 0.305, 0)
+	local GOAL_POSITION = UDim2.new(0.449, 0, 0.305, 0)
+	
+	local guiObject = script.Parent
+	local Main = script.Parent.Parent.Main
+	
+	local function callback(state)
+		if state == Enum.TweenStatus.Completed then
+			guiObject.Visible = false
+			script.Parent.Parent.Main.Visible = true
+			print("Gui Loaded Succesfully")
+		elseif state == Enum.TweenStatus.Canceled then
+			print("Animation was interrupted")
+		end
+	end
+	
+	
+	-- Initialize the GuiObject position, then start the tween:
+	guiObject.Position = START_POSITION
+	local willPlay = guiObject:TweenPosition(
+		GOAL_POSITION,           -- Final position the tween should reach
+		Enum.EasingDirection.In, -- Direction of the easing
+		Enum.EasingStyle.Sine,   -- Kind of easing to apply
+		1.5,                       -- Duration of the tween in seconds
+		true,                    -- Whether in-progress tweens are interrupted
+		callback                 -- Function to be callled when on completion/cancelation
+	)
+	if willPlay then
+		guiObject.Visible = true
+	else
+		print("Something went wrong")
+	end
+end
+coroutine.wrap(SYPHQKT_fake_script)()
